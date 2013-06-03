@@ -61,6 +61,7 @@ module CrowdfunderNextLevel
 
     config.generators do |g|
         g.test_framework :test_unit, :fixture => false
+        g.fixture_replacement :factory_girl, :dir => "test/factories"
     end
   end
 end
