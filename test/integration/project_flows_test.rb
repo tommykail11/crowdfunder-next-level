@@ -9,7 +9,7 @@ class ProjectFlowsTest < ActionDispatch::IntegrationTest
 
     visit "/projects"
 
-    assert_equal projecs_path, current_path
+    assert_equal projects_path, current_path
 
     assert page.has_content?('Listing projects')
 
