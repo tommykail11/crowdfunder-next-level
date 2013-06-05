@@ -20,7 +20,7 @@ class UserAuthenticationFlowTest < ActionDispatch::IntegrationTest
 
     # After submitting the form, should be redirected to root
     assert_equal root_path, current_path
-    # There should be a message says "Account Created"
+    # There should be a message says "Account created"
     assert page.has_content?("Account created")
     # And the navbar no longer has a link to Sign Up, but a link to Logout
     assert find('.navbar').has_no_link?('Sign Up')
@@ -39,12 +39,12 @@ class UserAuthenticationFlowTest < ActionDispatch::IntegrationTest
     # ... no message saying "Account created" should appear
     assert page.has_no_content?("Account created")
     # Should see a "Try again" message on failure to register
-    assert find('.alert:first').has_content?("Please Try Again")
+    assert find('.alert:first').has_content?("Try again")
   end
 
   test "successful log in" do
     visit '/'
-    assert find('.navbar').has_no_link('Logout')
+    assert find('.navbar').has_no_link?('Logout')
     # Calling the helper method here, it returns a user
     user = setup_signed_in_user
     assert find('.navbar').has_link?('Logout')
