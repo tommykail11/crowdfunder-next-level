@@ -1,5 +1,9 @@
 <h1><%= @project.title %></h1>
 
   <p>
-    by: <%= @project.user.first_name %> <%= @project.user.last_name %>
+    By <%= @project.user.first_name %> <%= @project.user.last_name %>
   </p>
+
+  <hr/>
+
+  <%= link_to 'Back This Project', [:new, @project, :pledge], class: 'btn btn-success btn-large' %>

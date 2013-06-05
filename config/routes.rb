@@ -1,4 +1,8 @@
 CrowdfunderNextLevel::Application.routes.draw do
+  get "pledges/new"
+
+  get "pledges/create"
+
   get 'sessions/new'
 
   get 'sessions/create'
@@ -7,9 +11,11 @@ CrowdfunderNextLevel::Application.routes.draw do
 
   get 'users/new'
 
-  resources :projects
+  resources :projects do
+    resources :pledges, only: [:new, :create]
+  end
   resources :users, except: [:index]
-  resource :session, :only => [:new, :create, :destroy]
+  resource  :session, :only => [:new, :create, :destroy]
 
   root :to => 'welcome#index'
   # The priority is based upon order of creation:
