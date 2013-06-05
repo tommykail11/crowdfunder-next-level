@@ -10,6 +10,9 @@ class ActiveSupport::TestCase
   # fixtures :all
 
   # Add more helper methods to be used by all tests here...
+  teardown do
+    DatabaseCleaner.clean
+  end
 end
 
 DatabaseCleaner.strategy = :truncation
@@ -40,6 +43,7 @@ class ActionDispatch::IntegrationTest
     fill_in "email", with: user.email
     fill_in "password", with: pass
     click_button "Login"
+    user
 
     # No asserts becaus testing is not done inside of a helper method
   end
