@@ -33,6 +33,8 @@ end
 group :test do
   gem 'factory_girl_rails'
   gem 'capybara'
+  gem 'database_cleaner' # This undoes changes made to the db during tests... Cool huh?
+  gem 'capybara-webkit', '~> 1.0.0' # This is the Capybara driver needed to handle JS.
 end
 
 gem 'jquery-rails'
