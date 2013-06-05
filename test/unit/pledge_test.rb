@@ -8,7 +8,7 @@ class PledgeTest < ActiveSupport::TestCase
 
   # Should not be able to save
   assert_false pledge.save
-  asser_equal "can't be blank", pledge.errors[:user].first
+  assert_equal "can't be blank", pledge.errors[:user].first
   end
 
   test "requires a project" do
