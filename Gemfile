@@ -21,6 +21,10 @@ group :assets do
   gem 'bootstrap-sass', '~> 2.2.2.0'
 end
 
+gem 'jquery-rails'
+gem 'kaminari'
+gem 'kaminari-bootstrap'
+
 group :tools do
   gem 'guard-test'
 end
