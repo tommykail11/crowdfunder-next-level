@@ -38,7 +38,7 @@ class ActionDispatch::IntegrationTest
   def setup_signed_in_user
     pass = "this_is_a_password"
     user = FactoryGirl.create :user, password: pass
-    visit = '/session/new'
+    visit '/session/new'
 
     fill_in "email", with: user.email
     fill_in "password", with: pass

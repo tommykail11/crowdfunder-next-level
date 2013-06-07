@@ -2,7 +2,7 @@
 
 <%= form_for [@project, @pledge] do |f| %>
 
-  <%= render 'shared/form_errors', :f => f %>
+  <%= render 'layouts/shared/form_errors', :f => f %>
 
   <%= f.label :amount %>
   <%= f.text_field :amount %>

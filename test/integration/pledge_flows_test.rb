@@ -12,7 +12,7 @@ class PledgeFlowsTest < ActionDispatch::IntegrationTest
     click_link 'Back This Project'
 
     assert_equal new_session_path, current_path
-    assert_page.has_content?('Please login first.')
+    assert page.has_content?('Please login first.')
   end
 
   test "authenticated user can pledge valid amount" do
@@ -30,10 +30,10 @@ class PledgeFlowsTest < ActionDispatch::IntegrationTest
 
     # Should be redirected back to the project page with a thank you message
     assert_equal project_path(@project), current_path
-    assert_page.has_content?("Thanks for pledging")
+    assert page.has_content?("Thanks for pledging")
 
     # Verify that the pledge was created with the right attributes
-    assert_pledge = Pledge.order(:id).last
+    assert pledge = Pledge.order(:id).last
     assert_equal user, pledge.user
     assert_equal @project, pledge.project
     assert_equal 100, pledge.amount
