@@ -2,9 +2,9 @@ require 'test_helper'
 
 class My::ProjectFlowsTest < ActionDispatch::IntegrationTest
   
-  test "lists only my projects" do
+  test "lists only my projects" do 
     me = setup_signed_in_user
-    other_user = FactoryGirl.create :other_user
+    other_user = FactoryGirl.create :user
 
     3.times { FactoryGirl.create :project, user: me }
     2.times { FactoryGirl.create :project, user: other_user, title: "Other Dude's Project" }
@@ -26,7 +26,7 @@ class My::ProjectFlowsTest < ActionDispatch::IntegrationTest
 
     click_button 'Update Project'
 
-    assert_equal my_project_path, current_path
+    assert_equal my_projects_path, current_path
     assert page.has_content?("It is really my project")
   end
 
@@ -34,7 +34,7 @@ class My::ProjectFlowsTest < ActionDispatch::IntegrationTest
     me = setup_signed_in_user
 
     other_user = FactoryGirl.create :user
-    project = FactoryGirl.create :project, user: other_user: title: "Other Dude's Project"
+    project = FactoryGirl.create :project, user: other_user, title: "Other Dude's Project"
 
     visit edit_my_project_path(project)
 
@@ -55,6 +55,6 @@ class My::ProjectFlowsTest < ActionDispatch::IntegrationTest
 
     click_button 'Publish Project'
 
-    assert_equal my_project_path, current_path
+    assert_equal my_projects_path, current_path
   end
 end

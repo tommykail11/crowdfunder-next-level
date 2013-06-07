@@ -1,19 +1,18 @@
 CrowdfunderNextLevel::Application.routes.draw do
-  get "pledges/new"
+  get "projects/index"
 
-  get "pledges/create"
+  get "projects/new"
 
-  get 'sessions/new'
+  get "projects/edit"
 
-  get 'sessions/create'
-
-  get 'sessions/destroy'
-
-  get 'users/new'
-
-  resources :projects do
+  resources :projects do 
     resources :pledges, only: [:new, :create]
   end
+
+  namespace :my do 
+    resources :projects # => My::ProjectsController
+  end
+  
   resources :users, except: [:index]
   resource  :session, :only => [:new, :create, :destroy]
 
