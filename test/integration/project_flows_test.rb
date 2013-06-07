@@ -41,6 +41,8 @@ class ProjectFlowsTest < ActionDispatch::IntegrationTest
     assert_equal projects_path, current_path
     # Assert the projects nav element is active
     assert_equal "Projects", find('.navbar ul li.active a').text
+    # Only the projects nav element should be active
+    page.assert_selector '.navbar ul li.active a', count: 1
 
     # On a project's show page, the Projects nav element should still be active
     click_link 'Project 1'
