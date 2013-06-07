@@ -14,7 +14,7 @@ class ActionDispatch::IntegrationTest
   # Make the Capybara DSL available in all integration tests
   include Capybara::DSL
 
-  Capybara.app = Crowdfunder::Application
+  Capybara.app = CrowdfunderNextLevel::Application
   # To change the Capybara driver to webkit when wanted
   Capybara.javascript_driver = :webkit
 
