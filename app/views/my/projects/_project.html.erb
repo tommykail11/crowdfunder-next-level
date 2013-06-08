@@ -1,4 +1,7 @@
-<div class="project">
-  <strong><%= link_to project.title, [:edit, :my, project] %></strong><br/>
-  <%= project.teaser %>
-</div>
+<li class="project">
+  <%= link_to project.title, project %>
+  <br />
+  <p>
+    <%= project.teaser %>
+  </p>
+</li>
